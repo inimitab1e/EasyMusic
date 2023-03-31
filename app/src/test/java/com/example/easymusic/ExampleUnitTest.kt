@@ -1,4 +1,4 @@
-package com.example.easymovies
+package com.example.easymusic
 
 import org.junit.Test
 

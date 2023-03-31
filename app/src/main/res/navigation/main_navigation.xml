@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation.xml"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.easymusic.ui.favorite.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_itemDetailsFragment"
+            app:destination="@id/itemDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.easymusic.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_overviewFragment"
+            app:destination="@id/overviewFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_itemDetailsFragment"
+            app:destination="@id/itemDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemDetailsFragment"
+        android:name="com.example.easymusic.ui.details.ItemDetailsFragment"
+        android:label="fragment_item_details"
+        tools:layout="@layout/fragment_item_details" />
+    <fragment
+        android:id="@+id/overviewFragment"
+        android:name="com.example.easymusic.ui.overview.OverviewFragment"
+        android:label="fragment_overview"
+        tools:layout="@layout/fragment_overview" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.easymusic.ui.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_itemDetailsFragment"
+            app:destination="@id/itemDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.easymusic.ui.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>
