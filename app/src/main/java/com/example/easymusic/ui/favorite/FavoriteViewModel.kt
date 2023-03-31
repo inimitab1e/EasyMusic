@@ -1,7 +1,10 @@
 package com.example.easymusic.ui.favorite
 
 import androidx.lifecycle.ViewModel
+import javax.inject.Inject
 
-class FavoriteViewModel : ViewModel() {
+class FavoriteViewModel @Inject constructor(
+
+) : ViewModel() {
     // TODO: Implement the ViewModel
 }

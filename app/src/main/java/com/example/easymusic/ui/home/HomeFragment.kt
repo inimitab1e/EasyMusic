@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.easymusic.R
 import com.example.easymusic.databinding.FragmentHomeBinding
+
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
