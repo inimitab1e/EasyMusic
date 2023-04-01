@@ -3,6 +3,10 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+def apikeyPropertiesFile = rootProject.file("api.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+
 android {
     namespace 'com.example.core_network'
     compileSdk 33
@@ -10,6 +14,9 @@ android {
     defaultConfig {
         minSdk 24
         targetSdk 33
+
+        buildConfigField("String", "X_RapidAPI_Key", apikeyProperties['X_RapidAPI_Key'])
+        buildConfigField("String", "X_RapidAPI_Host", apikeyProperties['X_RapidAPI_Host'])
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -32,6 +39,8 @@ android {
 
 dependencies {
 
+    implementation project(path: ':core')
+
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
 
@@ -39,7 +48,11 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
 
     //Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4" 
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+
+    //Network
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.1'
+    debugImplementation "com.github.chuckerteam.chucker:library:3.5.2"
 
     //JSON
     implementation 'com.google.code.gson:gson:2.9.0'
