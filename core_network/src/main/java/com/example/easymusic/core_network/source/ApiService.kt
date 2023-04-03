@@ -9,7 +9,13 @@ interface ApiService {
 
     @GET("charts/track")
     suspend fun getCharts(
-        @Query("pageSize") pageSize: String? = null,
-        @Query("startFrom") @androidx.annotation.IntRange(from = 1) page: Int = 1
+        @Query("startFrom") @androidx.annotation.IntRange(from = 1) page: Int = 1,
+        @Query("pageSize") pageSize: String? = null
     ): Result<ChartsDto>
+
+    companion object {
+
+        const val DEFAULT_PAGE_SIZE = 10
+        const val MAX_PAGE_SIZE = 20
+    }
 }
