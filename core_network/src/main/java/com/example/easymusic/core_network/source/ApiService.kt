@@ -14,8 +14,6 @@ interface ApiService {
     ): Result<ChartsDto>
 
     companion object {
-
-        const val DEFAULT_PAGE_SIZE = 10
         const val MAX_PAGE_SIZE = 20
     }
 }

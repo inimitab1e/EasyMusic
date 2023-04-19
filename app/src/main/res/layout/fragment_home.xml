@@ -13,7 +13,7 @@
         android:clipToPadding="false"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_news" />
+        tools:listitem="@layout/item_charts" />
 
     <ProgressBar
         android:id="@+id/progress"

@@ -12,16 +12,17 @@ import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
 import com.example.easymusic.R
-import com.example.easymusic.core_data.models.charts.Charts
-import com.example.easymusic.databinding.ItemNewsBinding
+import com.example.easymusic.core_data.models.charts.Track
+import com.example.easymusic.databinding.ItemChartsBinding
+
 
 class HomeNewsAdapter(context: Context) :
-    PagingDataAdapter<Charts, HomeNewsViewHolder>(ArticleDiffItemCallback) {
+    PagingDataAdapter<Track, HomeNewsViewHolder>(ArticleDiffItemCallback) {
 
     private val layoutInflater: LayoutInflater = LayoutInflater.from(context)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeNewsViewHolder {
-        return HomeNewsViewHolder(layoutInflater.inflate(R.layout.item_news, parent, false))
+        return HomeNewsViewHolder(layoutInflater.inflate(R.layout.item_charts, parent, false))
     }
 
     override fun onBindViewHolder(holder: HomeNewsViewHolder, position: Int) {
@@ -31,26 +32,26 @@ class HomeNewsAdapter(context: Context) :
 
 class HomeNewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    private val viewBinding by viewBinding(ItemNewsBinding::bind)
+    private val binding by viewBinding(ItemChartsBinding::bind)
 
-    fun bind(charts: Charts?) {
-        with(viewBinding) {
-            image.load(charts?.tracks?.get(0)?.images?.coverart) {
+    fun bind(charts: Track?) {
+        with(binding) {
+            image.load(charts?.images?.coverart) {
                 placeholder(ColorDrawable(Color.TRANSPARENT))
             }
-            title.text = charts?.tracks?.get(0)?.title
+            title.text = charts?.title
         }
     }
 }
 
-private object ArticleDiffItemCallback : DiffUtil.ItemCallback<Charts>() {
+private object ArticleDiffItemCallback : DiffUtil.ItemCallback<Track>() {
 
-    override fun areItemsTheSame(oldItem: Charts, newItem: Charts): Boolean {
+    override fun areItemsTheSame(oldItem: Track, newItem: Track): Boolean {
         return oldItem == newItem
     }
 
-    override fun areContentsTheSame(oldItem: Charts, newItem: Charts): Boolean {
-        return oldItem.tracks?.get(0)?.title == newItem.tracks?.get(0)?.title
-                && oldItem.tracks?.get(0)?.images?.coverart == newItem.tracks?.get(0)?.images?.coverart
+    override fun areContentsTheSame(oldItem: Track, newItem: Track): Boolean {
+        return oldItem.title == newItem.title
+                && oldItem.images?.coverart == newItem.images?.coverart
     }
 }
