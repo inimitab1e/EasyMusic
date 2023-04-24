@@ -49,6 +49,7 @@ dependencies {
     implementation project(path: ':core_network')
     implementation project(path: ':core_data')
     implementation project(path: ':core_db')
+    implementation project(path: ':core_media')
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
